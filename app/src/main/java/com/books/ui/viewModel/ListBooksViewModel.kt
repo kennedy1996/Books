@@ -11,13 +11,23 @@ class ListBooksViewModel: ViewModel() {
 
     private val repository = ListBooksRepository()
     private var listBooks = MutableLiveData<List<BookSingleApiReturn>>()
+    private var listBooksFirebase = MutableLiveData<List<BookSingleApiReturn>>()
 
     fun search() {
         viewModelScope.launch {
-            listBooks.value = repository.syndApi()
+            listBooks.value = repository.syncApi()
         }
     }
     fun getSearch(): MutableLiveData<List<BookSingleApiReturn>> {
         return listBooks
+    }
+
+    fun searchBooksFirebase() {
+        viewModelScope.launch {
+            listBooksFirebase.value =repository.searchFirebase()
+        }
+    }
+    fun getBooksFirebase(): MutableLiveData<List<BookSingleApiReturn>> {
+        return listBooksFirebase
     }
 }

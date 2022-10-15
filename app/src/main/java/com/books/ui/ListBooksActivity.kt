@@ -23,6 +23,7 @@ class ListBooksActivity : AppCompatActivity() {
         inicializatorFirebase(this)
 
         viewModel.search()
+        viewModel.searchBooksFirebase()
 
         val button = findViewById<Button>(R.id.list_books_activity_button_update)
         button.setOnClickListener {
@@ -30,9 +31,18 @@ class ListBooksActivity : AppCompatActivity() {
             val valor = viewModel.getSearch().value
             if (valor != null) {
                 for(i in valor.indices){
-                    Log.i("testUpdate", "ID: ${valor[i].id} | Description: ${valor[i].description}\n\n")
+                    Log.i("testUpdate", "ID: ${valor[i].id} | Description: ${valor[i].title}\n\n")
                 }
             }
+            Log.i("testUpdate", "TamanhoFirebase: ${viewModel.getBooksFirebase().value?.size}")
+            val valor2 = viewModel.getBooksFirebase().value
+            if (valor2 != null) {
+                for(i in valor2.indices){
+                    Log.i("testUpdateFirebase", "ID: ${valor2[i].id} | Title: ${valor2[i].title}\n\n")
+                }
+            }
+
+
         }
 
     }

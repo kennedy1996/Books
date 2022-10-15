@@ -48,6 +48,17 @@ class BooksWebService {
                     val detailsBook = searchSingleBookApi(listBooks[i].id)
                     if(detailsBook!=null){
                     completeList.add(detailsBook)
+                    }else{
+                        val withoutDetailBook = BookSingleApiReturn(
+                            listBooks[i].id,
+                            listBooks[i].title,
+                            listBooks[i].isbn,
+                            "Description not available",
+                            listBooks[i].price,
+                            listBooks[i].currencyCode,
+                            listBooks[i].author
+                        )
+                        completeList.add(withoutDetailBook)
                     }
                 }
                 returnV = completeList
