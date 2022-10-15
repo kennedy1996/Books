@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/list_books_activity_item_cardView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/list_books_activity_item_image"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toTopOf="@+id/list_books_activity_item_isbn_fixed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/books" />
+            <TextView
+                android:id="@+id/list_books_activity_item_title_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintTop_toBottomOf="@+id/list_books_activity_item_title_fixed"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Code Complete: A Practical Handbook of Software Construction" />
+            <TextView
+                android:id="@+id/list_books_activity_item_title_fixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Title"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/list_books_activity_item_description_fixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Description"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintTop_toBottomOf="@+id/list_books_activity_item_title_content"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/list_books_activity_item_description_content"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="3"
+                android:text="Description"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_title_content"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_title_content"
+                app:layout_constraintTop_toBottomOf="@+id/list_books_activity_item_description_fixed"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Widely considered one of the best practical guides to programming, Steve McConnell’s original CODE COMPLETE has been helping developers write better software for more than a decade. Now this classi" />
+            <TextView
+                android:id="@+id/list_books_activity_item_isbn_fixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ISBN"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/list_books_activity_item_isbn_content"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_image" />
+            <TextView
+                android:id="@+id/list_books_activity_item_isbn_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="978-0735619678"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/list_books_activity_item_price_fixed"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_image" />
+
+            <TextView
+                android:id="@+id/list_books_activity_item_price_fixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textColor="#4CAF50"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/list_books_activity_item_content"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_isbn_content" />
+
+            <TextView
+                android:id="@+id/list_books_activity_item_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:textColor="#4CAF50"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_image"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_image"
+                tools:text="5090 USD" />
+            <TextView
+                android:id="@+id/list_books_activity_item_author_fixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Author"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_description_content"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_description_content"
+                app:layout_constraintTop_toBottomOf="@+id/list_books_activity_item_description_content"
+                app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/list_books_activity_item_author_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_description_content"
+                app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_description_content"
+                app:layout_constraintTop_toBottomOf="@+id/list_books_activity_item_author_fixed"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Mike Riley" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
