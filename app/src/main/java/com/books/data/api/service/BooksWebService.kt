@@ -18,8 +18,6 @@ class BooksWebService {
             val booksReturn = booksApiService
                 .search()
             returnV = booksReturn
-
-
         } catch (e: Exception) {
             Log.e(TAG, "searchListBooksApi: ", e)
         }

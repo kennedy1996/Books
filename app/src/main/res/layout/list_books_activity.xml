@@ -7,7 +7,7 @@
     tools:context=".ui.ListBooksActivity">
 
     <Button
-        android:id="@+id/activity_trip_update"
+        android:id="@+id/list_books_activity_button_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activity_trip_recyclerView"
+        android:id="@+id/list_books_activity_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_trip_update"
+        app:layout_constraintTop_toBottomOf="@+id/list_books_activity_button_update"
         tools:listitem="@layout/list_books_activity_item" />
 
     <TextView
@@ -37,10 +37,10 @@
         android:layout_height="wrap_content"
         android:text="List of Books"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_trip_update"
-        app:layout_constraintEnd_toStartOf="@+id/activity_trip_update"
+        app:layout_constraintBottom_toBottomOf="@+id/list_books_activity_button_update"
+        app:layout_constraintEnd_toStartOf="@+id/list_books_activity_button_update"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/activity_trip_recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/activity_trip_update" />
+        app:layout_constraintStart_toStartOf="@+id/list_books_activity_recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/list_books_activity_button_update" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
