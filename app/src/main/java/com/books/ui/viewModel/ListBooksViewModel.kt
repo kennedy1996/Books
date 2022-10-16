@@ -41,7 +41,12 @@ class ListBooksViewModel : ViewModel() {
     fun removeBook(idBook: Int) {
         listBooksFirebase.value = repository.removeBook(idBook, listBooksFirebase)
     }
+
     fun addBook(book: BookSingleApiReturn) {
         listBooksFirebase.value = repository.addBook(book, listBooksFirebase)
+    }
+
+    fun modifyBook(book: BookSingleApiReturn, position: Int) {
+        listBooksFirebase.value = repository.modifyBook(book, listBooksFirebase, position)
     }
 }

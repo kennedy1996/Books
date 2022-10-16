@@ -84,3 +84,55 @@ private fun checkDataForm(
     }
     return error1
 }
+
+fun dialogModifyBook(
+    context: Context,
+    adapter: RecyclerView.Adapter<ListBooksAdapter.ViewHolder>?,
+    viewModel: ListBooksViewModel,
+    book: BookSingleApiReturn,
+    position: Int,
+) {
+    val dialog = Dialog(context)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.dialog_books_add_modify)
+    dialog.show()
+    val title: EditText = dialog.findViewById(R.id.dialog_books_add_modify_title_field)
+    val description: EditText =
+        dialog.findViewById(R.id.dialog_books_add_modify_description_field)
+    val price: EditText = dialog.findViewById(R.id.dialog_books_add_modify_price_field)
+    val isbn: EditText = dialog.findViewById(R.id.dialog_books_add_modify_isbn_field)
+    val author: EditText = dialog.findViewById(R.id.dialog_books_add_modify_author_field)
+    val currencyCode: EditText =
+        dialog.findViewById(R.id.dialog_books_add_modify_currencyCode_field)
+
+    val button: Button = dialog.findViewById(R.id.dialog_books_add_modify_button_save)
+
+    var error = false
+
+    title.setText(book.title)
+    description.setText(book.description)
+    price.setText(book.price.toString())
+    isbn.setText(book.isbn)
+    author.setText(book.author)
+    currencyCode.setText(book.currencyCode)
+
+    button.setOnClickListener {
+        error = checkDataForm(title, error, description, price, isbn, author)
+        if (!error) {
+            val bookToModify = BookSingleApiReturn(
+                id = book.id,
+                title = title.text.toString(),
+                description = description.text.toString(),
+                price = price.text.toString().toInt(),
+                isbn = isbn.text.toString(),
+                author = author.text.toString(),
+                currencyCode = currencyCode.text.toString()
+            )
+            viewModel.modifyBook(bookToModify, position)
+            adapter!!.notifyItemChanged(position)
+            adapter!!.notifyDataSetChanged()
+            dialog.dismiss()
+        }
+    }
+}

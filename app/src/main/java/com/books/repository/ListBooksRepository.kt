@@ -25,11 +25,27 @@ class ListBooksRepository {
     fun searchFirebase(): List<BookSingleApiReturn>? {
         return firebase.searchFirebaseData()
     }
-    fun removeBook(positionList: Int, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
+
+    fun removeBook(
+        positionList: Int,
+        listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>
+    ): List<BookSingleApiReturn>? {
         return manageList.removeBook(positionList, listBooksFirebase)
     }
-    fun addBook(book: BookSingleApiReturn, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
+
+    fun addBook(
+        book: BookSingleApiReturn,
+        listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>
+    ): List<BookSingleApiReturn>? {
         return manageList.addBook(book, listBooksFirebase)
+    }
+
+    fun modifyBook(
+        book: BookSingleApiReturn,
+        listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>,
+        position: Int
+    ): List<BookSingleApiReturn>? {
+        return manageList.modifyBook(book, listBooksFirebase, position)
     }
 
 }

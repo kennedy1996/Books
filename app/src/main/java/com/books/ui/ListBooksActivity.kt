@@ -61,7 +61,7 @@ class ListBooksActivity : AppCompatActivity() {
 
         adapter = ListBooksAdapter(
             this,
-            viewModel.getBooksFirebase()
+            viewModel
         )
         recyclerView.adapter = adapter
         settingsSwipe(recyclerView)

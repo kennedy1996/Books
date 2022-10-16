@@ -7,15 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.books.R
 import com.books.data.api.entity.BookSingleApiReturn
+import com.books.ui.dialog.dialogModifyBook
+import com.books.ui.viewModel.ListBooksViewModel
 
 class ListBooksAdapter(
     private val context: Context,
-    private var list: MutableLiveData<List<BookSingleApiReturn>>,
+    private var viewModel: ListBooksViewModel,
 ) : RecyclerView.Adapter<ListBooksAdapter.ViewHolder>() {
+
+    private val list = viewModel.getBooksFirebase()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.list_books_activity_item_title_content)
@@ -45,13 +48,31 @@ class ListBooksAdapter(
             holder.price.text = "${listAdapter?.price} ${listAdapter?.currencyCode}"
             holder.author.text = listAdapter?.author
 
-           holder.description.setOnClickListener{
-               showDialogFullDescription(listAdapter?.description.toString())
-           }
+            onDescriptionClick(holder, listAdapter)
+            onItemClick(holder, listAdapter, position)
 
 
         } catch (e: Exception) {
             Log.e("ListBooksAdapter", e.message.toString())
+        }
+    }
+
+    private fun onItemClick(
+        holder: ViewHolder,
+        listAdapter: BookSingleApiReturn?,
+        position: Int
+    ) {
+        holder.itemView.setOnClickListener {
+            dialogModifyBook(context, this, viewModel, listAdapter!!, position)
+        }
+    }
+
+    private fun onDescriptionClick(
+        holder: ViewHolder,
+        listAdapter: BookSingleApiReturn?
+    ) {
+        holder.description.setOnClickListener {
+            showDialogFullDescription(listAdapter?.description.toString())
         }
     }
 

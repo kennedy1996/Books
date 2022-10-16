@@ -5,14 +5,20 @@ import com.books.data.api.entity.BookSingleApiReturn
 
 class ManageList {
 
-    fun removeBook(positionList: Int, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
+    fun removeBook(
+        positionList: Int,
+        listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>
+    ): List<BookSingleApiReturn>? {
         val list = mutableListOf<BookSingleApiReturn>()
         list.addAll(listBooksFirebase.value!!)
         list.removeAt(positionList)
         return list
     }
 
-    fun addBook(bookRecibed: BookSingleApiReturn, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
+    fun addBook(
+        bookRecibed: BookSingleApiReturn,
+        listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>
+    ): List<BookSingleApiReturn>? {
         val list = mutableListOf<BookSingleApiReturn>()
         list.addAll(listBooksFirebase.value!!)
         val book = BookSingleApiReturn(
@@ -27,15 +33,26 @@ class ManageList {
         list.add(book)
         return list
     }
+
     fun nextId(list: MutableList<BookSingleApiReturn>): Int {
-        var higher= 0
-        for (i in list.indices){
-            if(list[i].id>higher){
-                higher=list[i].id
+        var higher = 0
+        for (i in list.indices) {
+            if (list[i].id > higher) {
+                higher = list[i].id
             }
         }
-        return higher+100
+        return higher + 100
     }
 
+    fun modifyBook(
+        bookRecibed: BookSingleApiReturn,
+        listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>,
+        position: Int
+    ): List<BookSingleApiReturn>? {
+        val list = mutableListOf<BookSingleApiReturn>()
+        list.addAll(listBooksFirebase.value!!)
+        list[position] = bookRecibed
 
+        return list
+    }
 }
