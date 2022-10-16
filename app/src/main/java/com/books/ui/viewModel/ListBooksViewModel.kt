@@ -7,30 +7,38 @@ import com.books.data.api.entity.BookSingleApiReturn
 import com.books.repository.ListBooksRepository
 import kotlinx.coroutines.launch
 
-class ListBooksViewModel: ViewModel() {
+class ListBooksViewModel : ViewModel() {
 
     private val repository = ListBooksRepository()
     private var listBooks = MutableLiveData<List<BookSingleApiReturn>>()
     private var listBooksFirebase = MutableLiveData<List<BookSingleApiReturn>>()
 
     fun search() {
+        searchBooksApi()
+        searchBooksFirebase()
+    }
+
+    fun searchBooksApi() {
         viewModelScope.launch {
             listBooks.value = repository.syncApi()
         }
     }
+
     fun getSearch(): MutableLiveData<List<BookSingleApiReturn>> {
         return listBooks
     }
 
     fun searchBooksFirebase() {
         viewModelScope.launch {
-            listBooksFirebase.value =repository.searchFirebase()
+            listBooksFirebase.value = repository.searchFirebase()
         }
     }
+
     fun getBooksFirebase(): MutableLiveData<List<BookSingleApiReturn>> {
         return listBooksFirebase
     }
-    fun removeBook(idBook: Int){
+
+    fun removeBook(idBook: Int) {
         listBooksFirebase.value = repository.removeBook(idBook, listBooksFirebase)
     }
 }

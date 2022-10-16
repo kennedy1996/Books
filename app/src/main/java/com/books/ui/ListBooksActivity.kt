@@ -33,20 +33,18 @@ class ListBooksActivity : AppCompatActivity() {
         settingsRecyclerView()
         observersToLiveData()
         checkDataAfterTime()
-        onClickUpdateButton()
+        onUpdateSwipe()
     }
 
-    private fun onClickUpdateButton() {
+    private fun onUpdateSwipe() {
         updateSwipe!!.setOnRefreshListener {
             searchingData()
-            adapter!!.notifyDataSetChanged()
             checkDataAfterTime()
         }
     }
 
     private fun searchingData() {
         viewModel.search()
-        viewModel.searchBooksFirebase()
     }
 
     private fun settingsRecyclerView() {
