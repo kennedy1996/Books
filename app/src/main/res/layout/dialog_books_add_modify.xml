@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="600dp">
+
+    <TextView
+        android:id="@+id/dialog_books_add_modify_title_fixed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="Title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/dialog_books_add_modify_title_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dialog_books_add_modify_description_fixed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Description"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_title_field"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/dialog_books_add_modify_description_field"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:textSize="20sp"
+        android:inputType="textMultiLine"
+        android:overScrollMode="always"
+        android:padding="15dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_description_fixed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dialog_books_add_modify_author_fixed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Author"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_description_field"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_description_field"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_description_field"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/dialog_books_add_modify_author_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_author_fixed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dialog_books_add_modify_isbn_fixed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:text="ISBN"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_author_field"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_author_field"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_author_field"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/dialog_books_add_modify_isbn_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_isbn_fixed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dialog_books_add_modify_price_fixed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:text="Price"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_isbn_field"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_isbn_field"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_isbn_field"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/dialog_books_add_modify_price_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_price_fixed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dialog_books_add_modify_currencyCode_fixed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:text="CurrencyCode"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_isbn_field"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_isbn_field"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_price_field"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/dialog_books_add_modify_currencyCode_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="textCapWords"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_title_fixed"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_currencyCode_fixed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/dialog_books_add_modify_button_save"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_books_add_modify_price_field"
+        app:layout_constraintStart_toStartOf="@+id/dialog_books_add_modify_price_field"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_books_add_modify_currencyCode_field"
+        app:layout_constraintVertical_bias="0.36" />
+</androidx.constraintlayout.widget.ConstraintLayout>

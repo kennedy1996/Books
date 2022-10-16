@@ -28,5 +28,8 @@ class ListBooksRepository {
     fun removeBook(positionList: Int, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
         return manageList.removeBook(positionList, listBooksFirebase)
     }
+    fun addBook(book: BookSingleApiReturn, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
+        return manageList.addBook(book, listBooksFirebase)
+    }
 
 }

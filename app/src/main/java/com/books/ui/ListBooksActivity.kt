@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.books.R
 import com.books.data.firebase.service.inicializatorFirebase
+import com.books.ui.dialog.dialogNewBook
 import com.books.ui.recyclerView.ListBooksAdapter
 import com.books.ui.viewModel.ListBooksViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListBooksActivity : AppCompatActivity() {
 
@@ -20,9 +22,7 @@ class ListBooksActivity : AppCompatActivity() {
         val provider = ViewModelProvider(this)
         provider.get(ListBooksViewModel::class.java)
     }
-
     private var adapter: RecyclerView.Adapter<ListBooksAdapter.ViewHolder>? = null
-
     private var updateSwipe: SwipeRefreshLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +34,14 @@ class ListBooksActivity : AppCompatActivity() {
         observersToLiveData()
         checkDataAfterTime()
         onUpdateSwipe()
+        onClickFabButton()
+    }
+
+    private fun onClickFabButton() {
+        val fab: FloatingActionButton = findViewById(R.id.list_books_activity_fab)
+        fab.setOnClickListener {
+            dialogNewBook(this, adapter, viewModel)
+        }
     }
 
     private fun onUpdateSwipe() {
@@ -56,7 +64,6 @@ class ListBooksActivity : AppCompatActivity() {
             viewModel.getBooksFirebase()
         )
         recyclerView.adapter = adapter
-
         settingsSwipe(recyclerView)
     }
 
