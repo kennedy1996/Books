@@ -1,6 +1,5 @@
 package com.books.data.firebase.converter
 
-import android.util.Log
 import com.books.data.api.entity.BookSingleApiReturn
 
 class DocumentConverter(
@@ -13,9 +12,6 @@ class DocumentConverter(
     val author: String = ""
 ) {
     fun forTrip(id: String): BookSingleApiReturn {
-
-        Log.i("CCDocs", "$id |  $title | $description")
-
         return BookSingleApiReturn(
             id = id.toInt(),
             title = title,

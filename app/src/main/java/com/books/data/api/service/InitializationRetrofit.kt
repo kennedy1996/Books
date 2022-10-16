@@ -1,6 +1,5 @@
 package com.books.data.api.service
 
-import com.books.data.api.entity.BooksApiReturn
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 

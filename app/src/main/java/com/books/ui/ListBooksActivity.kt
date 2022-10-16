@@ -28,39 +28,25 @@ class ListBooksActivity : AppCompatActivity() {
         setContentView(R.layout.list_books_activity)
 
         inicializatorFirebase(this)
-
-        viewModel.search()
-        viewModel.searchBooksFirebase()
-
+        searchingData()
         settingsRecyclerView()
         observersToLiveData()
-
         checkDataAfterTime()
+        onClickUpdateButton()
 
-        Log.i("adapterCount", "0adapter..count ${  adapter!!.itemCount}")
+    }
 
-        val button = findViewById<Button>(R.id.list_books_activity_button_update)
-        button.setOnClickListener {
-            Log.i("testUpdate", "onCreate: ${viewModel.getSearch().value?.size}")
-            val valor = viewModel.getSearch().value
-            if (valor != null) {
-                for(i in valor.indices){
-                    Log.i("testUpdate", "ID: ${valor[i].id} | Description: ${valor[i].title}\n\n")
-                }
-            }
-            Log.i("testUpdate", "TamanhoFirebase: ${viewModel.getBooksFirebase().value?.size}")
-            val valor2 = viewModel.getBooksFirebase().value
-            if (valor2 != null) {
-                for(i in valor2.indices){
-                    Log.i("testUpdateFirebase", "ID: ${valor2[i].id} | Title: ${valor2[i].title}\n\n")
-                }
-            }
-            Log.i("adapterCount", "1adapter..count ${  adapter!!.itemCount}")
+    private fun onClickUpdateButton() {
+        val updateButton = findViewById<Button>(R.id.list_books_activity_button_update)
+        updateButton.setOnClickListener {
+            settingsRecyclerView()
             adapter!!.notifyDataSetChanged()
-
-
         }
+    }
 
+    private fun searchingData() {
+        viewModel.search()
+        viewModel.searchBooksFirebase()
     }
 
     private fun settingsRecyclerView() {
@@ -76,7 +62,6 @@ class ListBooksActivity : AppCompatActivity() {
     }
     private fun observersToLiveData() {
         viewModel.getBooksFirebase()?.observe(this, Observer {
-            Log.i("adapterCount", "2adapter..count ${  adapter!!.itemCount}")
             adapter?.notifyDataSetChanged()
         })
     }
