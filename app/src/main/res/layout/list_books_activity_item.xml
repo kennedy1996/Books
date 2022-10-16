@@ -119,13 +119,13 @@
                 android:textColor="#4CAF50"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/list_books_activity_item_content"
+                app:layout_constraintBottom_toTopOf="@+id/list_books_activity_item_price_content"
                 app:layout_constraintEnd_toEndOf="@+id/list_books_activity_item_image"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/list_books_activity_item_isbn_content" />
 
             <TextView
-                android:id="@+id/list_books_activity_item_content"
+                android:id="@+id/list_books_activity_item_price_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"

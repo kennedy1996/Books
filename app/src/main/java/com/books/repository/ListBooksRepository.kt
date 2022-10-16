@@ -1,6 +1,5 @@
 package com.books.repository
 
-import androidx.lifecycle.MutableLiveData
 import com.books.data.api.entity.BookSingleApiReturn
 import com.books.data.api.service.BooksWebService
 import com.books.data.firebase.service.BooksFirebaseService
@@ -11,7 +10,7 @@ class ListBooksRepository {
 
     suspend fun syncApi(): List<BookSingleApiReturn>? {
         var search = webClient.searchCompleteAllBooksApi()
-        if(search!=null){
+        if (search != null) {
             syncApiToFirebase(search)
         }
         return search
@@ -20,8 +19,9 @@ class ListBooksRepository {
     fun syncApiToFirebase(list: List<BookSingleApiReturn>?) {
         firebase.sendBooksToFirebase(list)
     }
-    fun searchFirebase(): List<BookSingleApiReturn>?  {
-        return  firebase.searchFirebaseData()
+
+    fun searchFirebase(): List<BookSingleApiReturn>? {
+        return firebase.searchFirebaseData()
     }
 
 }
