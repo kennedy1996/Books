@@ -67,4 +67,10 @@ class ListBooksAdapter(
             .create()
             .show()
     }
+
+    inner class ViewHolder2() {
+        fun getItemCount(): Int {
+            return list?.value?.count() ?: 0
+        }
+    }
 }

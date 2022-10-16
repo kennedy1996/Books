@@ -30,4 +30,7 @@ class ListBooksViewModel: ViewModel() {
     fun getBooksFirebase(): MutableLiveData<List<BookSingleApiReturn>> {
         return listBooksFirebase
     }
+    fun removeBook(idBook: Int){
+        listBooksFirebase.value = repository.removeBook(idBook, listBooksFirebase)
+    }
 }

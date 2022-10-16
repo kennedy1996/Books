@@ -1,5 +1,6 @@
 package com.books.repository
 
+import androidx.lifecycle.MutableLiveData
 import com.books.data.api.entity.BookSingleApiReturn
 import com.books.data.api.service.BooksWebService
 import com.books.data.firebase.service.BooksFirebaseService
@@ -7,6 +8,7 @@ import com.books.data.firebase.service.BooksFirebaseService
 class ListBooksRepository {
     private val webClient = BooksWebService()
     private val firebase = BooksFirebaseService()
+    private val manageList = ManageList()
 
     suspend fun syncApi(): List<BookSingleApiReturn>? {
         var search = webClient.searchCompleteAllBooksApi()
@@ -22,6 +24,9 @@ class ListBooksRepository {
 
     fun searchFirebase(): List<BookSingleApiReturn>? {
         return firebase.searchFirebaseData()
+    }
+    fun removeBook(positionList: Int, listBooksFirebase: MutableLiveData<List<BookSingleApiReturn>>): List<BookSingleApiReturn>? {
+        return manageList.removeBook(positionList, listBooksFirebase)
     }
 
 }
