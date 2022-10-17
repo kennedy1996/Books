@@ -32,10 +32,8 @@ fun dialogNewBook(
 
     val button: Button = dialog.findViewById(R.id.dialog_books_add_modify_button_save)
 
-    var error = false
-
     button.setOnClickListener {
-        error = checkDataForm(title, error, description, price, isbn, author)
+        var error = checkDataForm(title, description, price, isbn, author)
         if (!error) {
             val book = BookSingleApiReturn(
                 id = 0,
@@ -51,38 +49,6 @@ fun dialogNewBook(
             dialog.dismiss()
         }
     }
-}
-
-private fun checkDataForm(
-    title: EditText,
-    error: Boolean,
-    description: EditText,
-    price: EditText,
-    isbn: EditText,
-    author: EditText
-): Boolean {
-    var error1 = error
-    if (title.text.isNullOrBlank()) {
-        title.error = "Invalid Title"
-        error1 = true
-    }
-    if (description.text.isNullOrBlank()) {
-        description.error = "Invalid Description"
-        error1 = true
-    }
-    if (price.text.isNullOrBlank()) {
-        price.error = "Invalid Price"
-        error1 = true
-    }
-    if (isbn.text.isNullOrBlank()) {
-        isbn.error = "Invalid ISBN"
-        error1 = true
-    }
-    if (author.text.isNullOrBlank()) {
-        author.error = "Invalid Author"
-        error1 = true
-    }
-    return error1
 }
 
 fun dialogModifyBook(
@@ -108,8 +74,6 @@ fun dialogModifyBook(
 
     val button: Button = dialog.findViewById(R.id.dialog_books_add_modify_button_save)
 
-    var error = false
-
     title.setText(book.title)
     description.setText(book.description)
     price.setText(book.price.toString())
@@ -118,7 +82,7 @@ fun dialogModifyBook(
     currencyCode.setText(book.currencyCode)
 
     button.setOnClickListener {
-        error = checkDataForm(title, error, description, price, isbn, author)
+        var error = checkDataForm(title, description, price, isbn, author)
         if (!error) {
             val bookToModify = BookSingleApiReturn(
                 id = book.id,
@@ -135,4 +99,35 @@ fun dialogModifyBook(
             dialog.dismiss()
         }
     }
+}
+
+private fun checkDataForm(
+    title: EditText,
+    description: EditText,
+    price: EditText,
+    isbn: EditText,
+    author: EditText
+): Boolean {
+    var error = false
+    if (title.text.isNullOrBlank()) {
+        title.error = "Invalid Title"
+        error = true
+    }
+    if (description.text.isNullOrBlank()) {
+        description.error = "Invalid Description"
+        error = true
+    }
+    if (price.text.isNullOrBlank()) {
+        price.error = "Invalid Price"
+        error = true
+    }
+    if (isbn.text.isNullOrBlank()) {
+        isbn.error = "Invalid ISBN"
+        error = true
+    }
+    if (author.text.isNullOrBlank()) {
+        author.error = "Invalid Author"
+        error = true
+    }
+    return error
 }
