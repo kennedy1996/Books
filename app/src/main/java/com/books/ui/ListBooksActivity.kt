@@ -104,6 +104,6 @@ class ListBooksActivity : AppCompatActivity() {
                 adapter!!.notifyDataSetChanged()
                 updateSwipe!!.isRefreshing = false
             }
-        }, 2000)
+        }, 3000)
     }
 }
